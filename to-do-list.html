@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Todo List</title>
+
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style-2.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1>Todo List</h1>
+
+
+        <!-- Add Todo -->
+        <form class="add-todo" id="todoForm">
+
+            <input
+                type="text"
+                id="todoInput"
+                placeholder="Enter a task..."
+            >
+
+            <button type="submit" id="addBtn">
+                Add
+            </button>
+
+        </form>
+
+
+        <!-- Search Todo -->
+        <section class="search-todo">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search tasks..."
+            >
+
+        </section>
+
+
+        <!-- Todo List -->
+        <section class="todo-section">
+
+            <div class="todo-header">
+
+                <h2>My Tasks</h2>
+
+                <span id="todoCount">0 Items</span>
+
+            </div>
+
+
+            <div id="todoList" class="todo-list">
+
+                <!-- JavaScript se todo items yaha add honge -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

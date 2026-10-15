@@ -1,0 +1,600 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   COLOR VARIABLES
+========================= */
+
+:root {
+    --bg: #07080c;
+    --card: #101218;
+
+    --red: #e10600;
+    --red-light: #ff211a;
+    --red-dark: #a80000;
+
+    --blue: #1769ff;
+    --blue-dark: #0d3db8;
+
+    --white: #f5f5f5;
+    --text: #e6e7ea;
+    --muted: #8c929d;
+
+    --border: #262a33;
+    --input-bg: #0b0d12;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+
+    font-family: 'Inter', sans-serif;
+
+    color: var(--white);
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(225, 6, 0, 0.14),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 85%,
+            rgba(23, 105, 255, 0.12),
+            transparent 25%
+        ),
+        var(--bg);
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+    position: relative;
+
+    width: 100%;
+    max-width: 680px;
+
+    padding: 40px;
+
+    background: rgba(16, 18, 24, 0.97);
+
+    border: 1px solid var(--border);
+    border-radius: 22px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.50);
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   TOP ACCENT LINE
+========================= */
+
+.container::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        var(--red),
+        var(--blue),
+        var(--red)
+    );
+}
+
+
+/* =========================
+   SUBTLE WEB EFFECT
+========================= */
+
+.container::after {
+    content: "";
+
+    position: absolute;
+
+    top: -85px;
+    right: -85px;
+
+    width: 210px;
+    height: 210px;
+
+    border-radius: 50%;
+
+    opacity: 0.09;
+
+    background:
+        repeating-radial-gradient(
+            circle,
+            transparent 0 17px,
+            #ffffff 18px 19px
+        ),
+        repeating-conic-gradient(
+            from 0deg,
+            transparent 0deg 14deg,
+            #ffffff 15deg 16deg
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   MAIN TITLE
+========================= */
+
+h1 {
+    position: relative;
+    z-index: 1;
+
+    text-align: center;
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 56px;
+    font-weight: 400;
+
+    letter-spacing: 3px;
+
+    color: var(--white);
+
+    margin-bottom: 38px;
+}
+
+
+/* Red underline */
+
+h1::after {
+    content: "";
+
+    display: block;
+
+    width: 55px;
+    height: 4px;
+
+    margin: 11px auto 0;
+
+    border-radius: 20px;
+
+    background: var(--red);
+}
+
+
+/* =========================
+   ADD TODO FORM
+========================= */
+
+.add-todo {
+    display: flex;
+
+    gap: 12px;
+
+    margin-bottom: 16px;
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+input {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    color: var(--text);
+
+    background: var(--input-bg);
+
+    border: 1px solid var(--border);
+    border-radius: 11px;
+
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease,
+        background-color 0.25s ease;
+}
+
+
+input::placeholder {
+    color: #646a75;
+}
+
+
+input:focus {
+    background: #0d1016;
+
+    border-color: var(--red);
+
+    box-shadow:
+        0 0 0 3px rgba(225, 6, 0, 0.12);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   ADD BUTTON
+========================= */
+
+#addBtn {
+    flex-shrink: 0;
+
+    min-width: 90px;
+
+    padding: 14px 22px;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 0.7px;
+
+    text-transform: uppercase;
+
+    color: white;
+
+    background: var(--red);
+
+    border: none;
+    border-radius: 11px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(225, 6, 0, 0.18);
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+#addBtn:hover {
+    background: var(--red-light);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 28px rgba(225, 6, 0, 0.28);
+}
+
+
+#addBtn:active {
+    transform: translateY(0);
+
+    box-shadow:
+        0 6px 15px rgba(225, 6, 0, 0.18);
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-todo {
+    margin-bottom: 36px;
+}
+
+
+/* =========================
+   TODO HEADER
+========================= */
+
+.todo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 17px;
+}
+
+
+.todo-header h2 {
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 27px;
+    font-weight: 400;
+
+    letter-spacing: 1.3px;
+
+    color: var(--white);
+}
+
+
+/* =========================
+   COUNT BADGE
+========================= */
+
+#todoCount {
+    padding: 6px 11px;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.4px;
+
+    text-transform: uppercase;
+
+    color: #b7bcc6;
+
+    background: #171a22;
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+}
+
+
+/* =========================
+   TODO LIST
+========================= */
+
+.todo-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 11px;
+}
+
+
+/* =========================
+   INDIVIDUAL TODO
+========================= */
+
+.todo-list > div {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    min-height: 52px;
+
+    padding: 13px 14px 13px 19px;
+
+    background: #0d0f14;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    animation: todoAppear 0.25s ease;
+
+    transition:
+        transform 0.22s ease,
+        background-color 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+
+/* =========================
+   TODO RED SIDE INDICATOR
+========================= */
+
+.todo-list > div::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 3px;
+    height: 100%;
+
+    background: var(--red);
+}
+
+
+/* =========================
+   TODO HOVER
+========================= */
+
+.todo-list > div:hover {
+    transform: translateX(4px);
+
+    background: #11141b;
+
+    border-color: #363b46;
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.22);
+}
+
+
+/* =========================
+   TODO TEXT
+========================= */
+
+.todo-list > div span {
+    flex: 1;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    line-height: 1.5;
+
+    color: #e7e9ed;
+
+    word-break: break-word;
+}
+
+
+/* =========================
+   DELETE BUTTON
+========================= */
+
+.todo-list > div button {
+    flex-shrink: 0;
+
+    padding: 8px 12px;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.4px;
+
+    text-transform: uppercase;
+
+    color: #aeb4be;
+
+    background: transparent;
+
+    border: 1px solid #30343e;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.todo-list > div button:hover {
+    color: white;
+
+    background: var(--blue);
+
+    border-color: var(--blue);
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 14px rgba(23, 105, 255, 0.18);
+}
+
+
+.todo-list > div button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   TODO APPEAR ANIMATION
+========================= */
+
+@keyframes todoAppear {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 20px 14px;
+
+        align-items: flex-start;
+    }
+
+
+    .container {
+        margin-top: 20px;
+
+        padding: 27px 20px;
+
+        border-radius: 18px;
+    }
+
+
+    h1 {
+        font-size: 46px;
+
+        margin-bottom: 30px;
+    }
+
+
+    .add-todo {
+        flex-direction: column;
+    }
+
+
+    #addBtn {
+        width: 100%;
+    }
+
+
+    .todo-header {
+        align-items: center;
+    }
+
+
+    .todo-header h2 {
+        font-size: 24px;
+    }
+
+}

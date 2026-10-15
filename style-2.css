@@ -1,0 +1,607 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   COLORS
+========================= */
+
+:root {
+    --red: #e31818;
+    --red-light: #ff2a2a;
+
+    --blue: #1677ff;
+
+    --white: #ffffff;
+    --text: #eeeeee;
+    --muted: #a7a7a7;
+
+    --glass: rgba(8, 10, 14, 0.78);
+    --glass-light: rgba(255, 255, 255, 0.07);
+
+    --border: rgba(255, 255, 255, 0.12);
+}
+
+
+/* =========================
+   BODY / BACKGROUND
+========================= */
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 20px;
+
+    font-family: 'Inter', sans-serif;
+
+    color: var(--text);
+
+    background-image:
+        linear-gradient(
+            rgba(4, 5, 8, 0.62),
+            rgba(4, 5, 8, 0.78)
+        ),
+        url("imgs/spiderman-bg-1.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+}
+
+
+/* =========================
+   MAIN GLASS PANEL
+========================= */
+
+.container {
+    position: relative;
+
+    width: 100%;
+    max-width: 680px;
+
+    padding: 42px;
+
+    background: var(--glass);
+
+    border: 1px solid var(--border);
+
+    border-radius: 24px;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   TOP RED ACCENT
+========================= */
+
+.container::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--red),
+        var(--red-light),
+        transparent
+    );
+}
+
+
+/* =========================
+   SMALL DECORATIVE GLOW
+========================= */
+
+.container::after {
+    content: "";
+
+    position: absolute;
+
+    width: 240px;
+    height: 240px;
+
+    top: -150px;
+    right: -110px;
+
+    background: rgba(227, 24, 24, 0.15);
+
+    border-radius: 50%;
+
+    filter: blur(70px);
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+h1 {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 58px;
+    font-weight: 400;
+
+    letter-spacing: 3px;
+
+    color: var(--white);
+
+    margin-bottom: 38px;
+
+    text-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+
+/* small red underline */
+
+h1::after {
+    content: "";
+
+    display: block;
+
+    width: 45px;
+    height: 3px;
+
+    margin: 10px auto 0;
+
+    border-radius: 20px;
+
+    background: var(--red);
+}
+
+
+/* =========================
+   ADD FORM
+========================= */
+
+.add-todo {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 14px;
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+input {
+    width: 100%;
+
+    padding: 15px 17px;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    color: var(--white);
+
+    background: rgba(0, 0, 0, 0.32);
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+
+    border-radius: 11px;
+
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        background-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+
+input:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+
+input:focus {
+    border-color: rgba(227, 24, 24, 0.8);
+
+    background: rgba(0, 0, 0, 0.48);
+
+    box-shadow:
+        0 0 0 3px rgba(227, 24, 24, 0.12);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   ADD BUTTON
+========================= */
+
+#addBtn {
+    flex-shrink: 0;
+
+    min-width: 90px;
+
+    padding: 14px 22px;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+
+    text-transform: uppercase;
+
+    color: var(--white);
+
+    background: var(--red);
+
+    border: 1px solid var(--red);
+
+    border-radius: 11px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(227, 24, 24, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+#addBtn:hover {
+    background: var(--red-light);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 30px rgba(227, 24, 24, 0.32);
+}
+
+
+#addBtn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-todo {
+    position: relative;
+    z-index: 2;
+
+    margin-bottom: 34px;
+}
+
+
+/* =========================
+   TODO HEADER
+========================= */
+
+.todo-header {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 15px;
+}
+
+
+.todo-header h2 {
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 28px;
+
+    font-weight: 400;
+
+    letter-spacing: 1.4px;
+
+    color: var(--white);
+}
+
+
+/* =========================
+   ITEM COUNT
+========================= */
+
+#todoCount {
+    padding: 6px 11px;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    text-transform: uppercase;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 30px;
+}
+
+
+/* =========================
+   TODO LIST
+========================= */
+
+.todo-list {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+/* =========================
+   TODO ITEM
+========================= */
+
+.todo-list > div {
+    position: relative;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 14px;
+
+    min-height: 52px;
+
+    padding: 12px 13px 12px 18px;
+
+    background: rgba(255, 255, 255, 0.055);
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: 11px;
+
+    overflow: hidden;
+
+    animation: todoAppear 0.25s ease;
+
+    transition:
+        transform 0.22s ease,
+        background-color 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+
+/* red vertical line */
+
+.todo-list > div::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 3px;
+    height: 100%;
+
+    background: var(--red);
+}
+
+
+/* subtle hover */
+
+.todo-list > div:hover {
+    transform: translateX(4px);
+
+    background: rgba(255, 255, 255, 0.085);
+
+    border-color: rgba(255, 255, 255, 0.17);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.20);
+}
+
+
+/* =========================
+   TODO TEXT
+========================= */
+
+.todo-list > div span {
+    flex: 1;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    line-height: 1.5;
+
+    color: var(--text);
+
+    word-break: break-word;
+}
+
+
+/* =========================
+   DELETE BUTTON
+========================= */
+
+.todo-list > div button {
+    flex-shrink: 0;
+
+    padding: 8px 12px;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.4px;
+
+    text-transform: uppercase;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    background: transparent;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.todo-list > div button:hover {
+    color: white;
+
+    background: var(--blue);
+
+    border-color: var(--blue);
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 6px 16px rgba(22, 119, 255, 0.22);
+}
+
+
+.todo-list > div button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   TODO APPEAR
+========================= */
+
+@keyframes todoAppear {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        align-items: flex-start;
+
+        padding: 20px 14px;
+
+        background-attachment: scroll;
+    }
+
+
+    .container {
+        margin-top: 20px;
+
+        padding: 28px 20px;
+
+        border-radius: 18px;
+    }
+
+
+    h1 {
+        font-size: 48px;
+
+        margin-bottom: 30px;
+    }
+
+
+    .add-todo {
+        flex-direction: column;
+    }
+
+
+    #addBtn {
+        width: 100%;
+    }
+
+
+    .todo-header h2 {
+        font-size: 25px;
+    }
+
+}
