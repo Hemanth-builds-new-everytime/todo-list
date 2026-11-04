@@ -12,7 +12,6 @@ todoForm.addEventListener('submit', function (e) {
     // console.log("Form submitted");
     // console.log(input.value);
 
-
     e.preventDefault();
     if (input.value.trim() === "") {
         return;
@@ -23,7 +22,7 @@ todoForm.addEventListener('submit', function (e) {
 
     // Todo text span tag 
     const todoText = document.createElement("span");;
-    todoText.textContent = input.value;
+    todoText.textContent = input.value; 
 
 
     // todoteext append krna 
@@ -43,7 +42,7 @@ todoForm.addEventListener('submit', function (e) {
     // Count update 
     // console.log(todoList.childElementCount);
     todoCount.textContent = `${todoList.children.length} items`
-
+ 
     // delete button functionailty 
     deleteBtn.addEventListener('click', function () {
         console.log("Delete clicked");
