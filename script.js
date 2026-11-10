@@ -5,83 +5,62 @@ const todoForm = document.querySelector('#todoForm');
 const todoCount = document.querySelector('#todoCount');
 
 
+// Todo count update
+function updateTodoCount() {
+    todoCount.textContent = `${todoList.children.length} items`;
+}
+
+// Search ke according todos show/hide krne kaa part
+function filterTodos() {
+    const searchText = searchInput.value.toLowerCase();
+
+    for (const todo of todoList.children) {
+
+        const todoText = todo.querySelector('span').textContent.toLowerCase();
+        const isMatch = todoText.includes(searchText);
+        todo.style.display = isMatch ? '' : 'none';
+    }
+}
 
 
+// New todo add karna
 todoForm.addEventListener('submit', function (e) {
-    
-    // console.log("Form submitted");
-    // console.log(input.value);
-
     e.preventDefault();
-    if (input.value.trim() === "") {
+    const todoValue = input.value.trim();
+    if (todoValue === '') {
         return;
     }
 
     // Todo parent div
-    const todo = document.createElement("div");
+    const todo = document.createElement('div');
 
-    // Todo text span tag 
-    const todoText = document.createElement("span");;
-    todoText.textContent = input.value; 
+    // Todo text
+    const todoText = document.createElement('span');
+    todoText.textContent = todoValue;
 
+    // Delete button
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete';
 
-    // todoteext append krna 
+    // Dono elements ko todo me add krne ke liye
     todo.appendChild(todoText);
-
-    // delete button
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Delete";
-
-    // delete button ko append kra todo me 
     todo.appendChild(deleteBtn);
 
-    // pura todo wala part list me add kra
-    console.log(todo);
+    // Todo ko list me add kiya
     todoList.appendChild(todo);
 
-    // Count update 
-    // console.log(todoList.childElementCount);
-    todoCount.textContent = `${todoList.children.length} items`
- 
-    // delete button functionailty 
+    // Delete functionality
     deleteBtn.addEventListener('click', function () {
-        console.log("Delete clicked");
         todo.remove();
-        todoCount.textContent = `${todoList.children.length} items`
-    })
+        updateTodoCount();
+    });
 
+    input.value = '';
 
-    input.value = "";
-
-})
-
-
-
-searchInput.addEventListener('input', function () {
-
-    // console.log(searchInput.value);
-    const searchText = searchInput.value.toLowerCase();
-    console.log(searchText);
-    for (const todo of todoList.children) {
-
-        const todoName = todo.querySelector("span");
-
-        // true or false case store krne ke liye.
-        const isMatch = todoName.textContent.toLowerCase().includes(searchText);
-
-        if (isMatch) {
-            todo.style.display = "";
-        } else {
-            todo.style.display = "none";
-        }
-
-
-        // console.log(isMatch);
-        // console.log(todoName.textContent);
-        // console.log(searchText);
-        
-        // console.log(todo.textContent);
-
-    }
-    
+    updateTodoCount();
+    filterTodos();
 });
+
+
+// Search functionality
+searchInput.addEventListener('input', filterTodos);
